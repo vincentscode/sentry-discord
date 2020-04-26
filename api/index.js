@@ -12,9 +12,10 @@ module.exports = async (request, response) => {
   try {
     const { body } = request;
 
+    console.log(request);
+
+    // create payload
     const payload = {
-      // username: 'Sentry',
-      // avatar_url: `https://raw.githubusercontent.com/IanMitchell/sentry-discord/master/sentry-icon.png`,
       embeds: [
         {
           title: "AINotes",
@@ -27,6 +28,7 @@ module.exports = async (request, response) => {
       ],
     };
 
+    // send request to discord
     fetch(process.env.WEBHOOK, {
       method: 'POST',
       body: JSON.stringify(payload),

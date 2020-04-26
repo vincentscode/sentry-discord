@@ -1,3 +1,5 @@
 # Dependencies and Build
 node_modules
 .env
+
+.now

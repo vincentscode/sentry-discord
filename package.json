@@ -1,13 +1,8 @@
 {
   "name": "sentry-discord",
   "version": "1.0.0",
-  "description": "Routes Sentry Webhooks to Discord",
-  "author": {
-    "name": "Ian Mitchell",
-    "email": "ian.mitchel1@live.com",
-    "url": "http://ianmitchell.io"
-  },
-  "repository": "ianmitchell/sentry-discord",
+  "description": "Routes Sentry Integration to Discord",
+  "repository": "vincentscode/sentry-discord",
   "license": "MIT",
   "main": "index.js",
   "scripts": {

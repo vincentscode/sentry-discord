@@ -34,6 +34,9 @@ module.exports = async (request, response) => {
       body: JSON.stringify(payload),
       headers: { 'Content-Type': 'application/json' },
     });
+
+
+  res.send('Success');
   } catch (err) {
     console.error(err);
   }

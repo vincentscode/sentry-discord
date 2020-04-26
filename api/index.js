@@ -27,12 +27,10 @@ module.exports = async (request, response) => {
       ],
     };
 
-    if (body.event.user) {
-      payload.embeds[0].fields.push({
-        name: '**User**',
-        value: body.data.installation.uuid,
-      });
-    }
+    payload.embeds[0].fields.push({
+      name: '**User**',
+      value: body.data.installation.uuid,
+    });
 
     fetch(process.env.WEBHOOK, {
       method: 'POST',

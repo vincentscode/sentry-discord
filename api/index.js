@@ -12,7 +12,7 @@ module.exports = async (request, response) => {
   try {
     const { body } = request;
 
-    console.log(request);
+    console.log("request:", request);
 
     // create payload
     const payload = {
@@ -28,15 +28,15 @@ module.exports = async (request, response) => {
       ],
     };
 
+    res.send('Success');
+
     // send request to discord
+    console.log("sending to discord");
     fetch(process.env.WEBHOOK, {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: { 'Content-Type': 'application/json' },
     });
-
-
-  res.send('Success');
   } catch (err) {
     console.error(err);
   }

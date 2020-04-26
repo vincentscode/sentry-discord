@@ -28,7 +28,7 @@ module.exports = async (request, response) => {
       ],
     };
 
-    res.send('Success');
+    response.send('Success');
 
     // send request to discord
     console.log("sending to discord");

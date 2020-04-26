@@ -27,11 +27,6 @@ module.exports = async (request, response) => {
       ],
     };
 
-    payload.embeds[0].fields.push({
-      name: '**User**',
-      value: body.data.installation.uuid,
-    });
-
     fetch(process.env.WEBHOOK, {
       method: 'POST',
       body: JSON.stringify(payload),

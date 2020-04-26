@@ -11,19 +11,17 @@ const COLORS = {
 module.exports = async (request, response) => {
   try {
     const { body } = request;
-    console.log(body);
 
     const payload = {
       // username: 'Sentry',
       // avatar_url: `https://raw.githubusercontent.com/IanMitchell/sentry-discord/master/sentry-icon.png`,
       embeds: [
         {
-          title: body.project_name,
+          title: "AINotes",
           type: 'rich',
-          description: body.message,
-          url: body.url,
-          timestamp: new Date(body.event.received * 1000).toISOString(),
-          color: COLORS[body.level] || COLORS.error,
+          description: body.data.issue.title,
+          url: "https://sentry.io/organizations/vincent-schmandt/issues/" + body.data.issue.id + "/?project=1477776",
+          color: COLORS[body.data.issue.level] || COLORS.error,
           fields: [],
         },
       ],
@@ -32,17 +30,7 @@ module.exports = async (request, response) => {
     if (body.event.user) {
       payload.embeds[0].fields.push({
         name: '**User**',
-        value: body.event.user.username,
-      });
-    }
-
-    if (body.event.tags) {
-      body.event.tags.forEach(([key, value]) => {
-        payload.embeds[0].fields.push({
-          name: key,
-          value,
-          inline: true,
-        });
+        value: body.data.installation.uuid,
       });
     }
 

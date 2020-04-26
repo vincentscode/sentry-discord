@@ -12,7 +12,7 @@ module.exports = async (request, response) => {
   try {
     const { body } = request;
 
-    console.log("request:", request);
+    console.log("body:", body);
 
     // create payload
     const payload = {

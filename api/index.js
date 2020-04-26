@@ -28,8 +28,6 @@ module.exports = async (request, response) => {
       ],
     };
 
-    response.send('Success');
-
     // send request to discord
     console.log("sending to discord");
     fetch(process.env.WEBHOOK, {
@@ -37,6 +35,8 @@ module.exports = async (request, response) => {
       body: JSON.stringify(payload),
       headers: { 'Content-Type': 'application/json' },
     }).then(response => console.log("sent ->", response));
+
+    response.send('Success');
   } catch (err) {
     console.error(err);
   }
